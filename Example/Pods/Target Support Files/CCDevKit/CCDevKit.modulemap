@@ -1,0 +1,6 @@
+framework module CCDevKit {
+  umbrella header "CCDevKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

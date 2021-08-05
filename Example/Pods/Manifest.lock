@@ -1,0 +1,16 @@
+PODS:
+  - CCDevKit (0.1.0)
+
+DEPENDENCIES:
+  - CCDevKit (from `../`)
+
+EXTERNAL SOURCES:
+  CCDevKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CCDevKit: eeecf4ca3f5381e5ba19d345b44d73dfc03bf997
+
+PODFILE CHECKSUM: cd1ca0be432297425ce5787ff1fba8c4a523d5a9
+
+COCOAPODS: 1.10.1
