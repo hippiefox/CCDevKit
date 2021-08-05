@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'CCDevKit_Example' do
+  pod 'CCDevKit', :path => '../'
+
+  target 'CCDevKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
