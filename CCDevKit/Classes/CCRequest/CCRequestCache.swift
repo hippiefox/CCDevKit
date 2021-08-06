@@ -10,10 +10,11 @@ struct CCRequestCacheModel: Codable {
 class CCRequestCache: NSObject {
     static let `default` = CCRequestCache()
 
-    private var storage: DiskStorage<String, CCRequestCacheModel>?
+    
+    private var storage: DiskStorage<CCRequestCacheModel>?
     override init() {
         super.init()
-        storage = try? DiskStorage<String, CCRequestCacheModel>(config: .init(name: "CCRequestCache"), transformer: TransformerFactory.forCodable(ofType: CCRequestCacheModel.self))
+        storage = try? DiskStorage<CCRequestCacheModel>(config: .init(name: "CCRequestCache"), transformer: TransformerFactory.forCodable(ofType: CCRequestCacheModel.self))
     }
 
     func removeAll() {

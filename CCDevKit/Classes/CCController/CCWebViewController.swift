@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class CCWebViewController: UIViewController {
+public class CCWebViewController: UIViewController {
     public var progressTintColor: UIColor = .blue {
         didSet {
             progressView.progressTintColor = progressTintColor
@@ -51,7 +51,7 @@ class CCWebViewController: UIViewController {
         return view
     }()
 
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         webView.load(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
         webView.addObserver(self, forKeyPath: progressKeyPath, options: .new, context: nil)
@@ -59,7 +59,7 @@ class CCWebViewController: UIViewController {
         configureUI()
     }
 
-    override func viewDidLayoutSubviews() {
+    public override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if webView.frame.size == .zero {
             var top: CGFloat = 0
@@ -69,7 +69,7 @@ class CCWebViewController: UIViewController {
         }
     }
 
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == progressKeyPath {
             progressView.alpha = 1
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
@@ -97,7 +97,7 @@ extension CCWebViewController {
 // MARK: - WKUIDelegate,WKNavigationDelegate
 
 extension CCWebViewController: WKUIDelegate, WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         navigationItem.title = webView.title
     }
 }

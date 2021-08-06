@@ -7,9 +7,9 @@
 
 import UIKit
 
-class CCViewController: UIViewController {
+open class CCViewController: UIViewController {
 
-    override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white

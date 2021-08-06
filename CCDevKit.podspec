@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CCDevKit'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A short description of CCDevKit.'
 
 # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'CCAppDevKit/Classes/**/*.{h,m,swift}'
+  s.source_files = 'CCDevKit/Classes/**/*.{h,m,swift}'
   
   # s.resource_bundles = {
   #   'CCDevKit' => ['CCDevKit/Assets/*.png']
@@ -36,8 +36,8 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-    s.dependency "Cache"
-  s.dependency 'Moya'
+    s.dependency "Cache", '~>5.3.0'
+  s.dependency 'Moya','~>13.0.1'
   s.dependency 'SwiftyJSON', '~> 4.0'
   s.dependency 'MBProgressHUD', '~> 1.2.0'
   s.dependency 'KeychainAccess', '~> 4.2.1'
