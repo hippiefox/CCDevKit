@@ -8,14 +8,14 @@
 import UIKit
 import WebKit
 
-public class CCWebViewController: UIViewController {
-    public var progressTintColor: UIColor = .blue {
+open class CCWebViewController: UIViewController {
+    open var progressTintColor: UIColor = .blue {
         didSet {
             progressView.progressTintColor = progressTintColor
         }
     }
 
-    public var progressBGColor: UIColor = .white {
+    open var progressBGColor: UIColor = .white {
         didSet {
             progressView.trackTintColor = progressBGColor
         }
@@ -26,7 +26,7 @@ public class CCWebViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
 
-    public required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -51,15 +51,14 @@ public class CCWebViewController: UIViewController {
         return view
     }()
 
-    public override func viewDidLoad() {
+    open override func viewDidLoad() {
         super.viewDidLoad()
         webView.load(URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData))
         webView.addObserver(self, forKeyPath: progressKeyPath, options: .new, context: nil)
-        self.navigationController?.navigationBar.isHidden = true
         configureUI()
     }
 
-    public override func viewDidLayoutSubviews() {
+    open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if webView.frame.size == .zero {
             var top: CGFloat = 0
@@ -69,7 +68,7 @@ public class CCWebViewController: UIViewController {
         }
     }
 
-    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
+    open override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey: Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == progressKeyPath {
             progressView.alpha = 1
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)
@@ -91,13 +90,14 @@ extension CCWebViewController {
         view.backgroundColor = .white
         view.addSubview(webView)
         view.addSubview(progressView)
+        navigationController?.navigationBar.isHidden = false
     }
 }
 
 // MARK: - WKUIDelegate,WKNavigationDelegate
 
 extension CCWebViewController: WKUIDelegate, WKNavigationDelegate {
-    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    open func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         navigationItem.title = webView.title
     }
 }
