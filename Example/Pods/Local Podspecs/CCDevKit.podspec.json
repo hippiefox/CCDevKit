@@ -1,6 +1,6 @@
 {
   "name": "CCDevKit",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "summary": "A short description of CCDevKit.",
   "homepage": "https://github.com/hippiefox/CCDevKit",
   "license": {
@@ -12,29 +12,55 @@
   },
   "source": {
     "git": "https://github.com/hippiefox/CCDevKit.git",
-    "tag": "0.1.1"
+    "tag": "0.1.3"
   },
   "swift_versions": "5.0",
   "platforms": {
     "ios": "11.0"
   },
   "source_files": "CCDevKit/Classes/**/*.{h,m,swift}",
-  "dependencies": {
-    "Cache": [
-
-    ],
-    "Moya": [
-
-    ],
-    "SwiftyJSON": [
-      "~> 4.0"
-    ],
-    "MBProgressHUD": [
-      "~> 1.2.0"
-    ],
-    "KeychainAccess": [
-      "~> 4.2.1"
-    ]
-  },
+  "subspecs": [
+    {
+      "name": "Base",
+      "source_files": "CCDevKit/Classes/Base/**/*"
+    },
+    {
+      "name": "Device",
+      "source_files": "CCDevKit/Classes/Device/**/*",
+      "dependencies": {
+        "KeychainAccess": [
+          "~> 4.2.1"
+        ]
+      }
+    },
+    {
+      "name": "Widgets",
+      "source_files": "CCDevKit/Classes/Widgets/**/*",
+      "dependencies": {
+        "MBProgressHUD": [
+          "~> 1.2.0"
+        ]
+      }
+    },
+    {
+      "name": "Controller",
+      "source_files": "CCDevKit/Classes/Controller/**/*"
+    },
+    {
+      "name": "Request",
+      "source_files": "CCDevKit/Classes/Request/**/*",
+      "dependencies": {
+        "MBProgressHUD": [
+          "~> 1.2.0"
+        ],
+        "Cache": [
+          "~>5.3.0"
+        ],
+        "Moya": [
+          "~>13.0.1"
+        ]
+      }
+    }
+  ],
   "swift_version": "5.0"
 }

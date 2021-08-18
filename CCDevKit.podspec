@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'CCDevKit'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'A short description of CCDevKit.'
 
 # This description is used to generate tags and improve search results.
@@ -36,9 +36,42 @@ Pod::Spec.new do |s|
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   # s.dependency 'AFNetworking', '~> 2.3'
-    s.dependency "Cache", '~>5.3.0'
-  s.dependency 'Moya','~>13.0.1'
-  s.dependency 'SwiftyJSON', '~> 4.0'
-  s.dependency 'MBProgressHUD', '~> 1.2.0'
-  s.dependency 'KeychainAccess', '~> 4.2.1'
+  
+  
+  
+#  s.dependency "Cache", '~>5.3.0'
+#  s.dependency 'Moya','~>13.0.1'
+#  s.dependency 'SwiftyJSON', '~> 4.0'
+#  s.dependency 'MBProgressHUD', '~> 1.2.0'
+#  s.dependency 'KeychainAccess', '~> 4.2.1'
+  
+  # 基础类
+    s.subspec 'Base' do |bb|
+        bb.source_files = 'CCDevKit/Classes/Base/**/*'
+    end
+    # 设备信息
+    s.subspec 'Device' do |dd|
+        dd.source_files = 'CCDevKit/Classes/Device/**/*'
+        dd.dependency 'KeychainAccess', '~> 4.2.1'
+    end
+
+    # Widgets
+    s.subspec 'Widgets' do |ww|
+        ww.source_files = 'CCDevKit/Classes/Widgets/**/*'
+        ww.dependency 'MBProgressHUD', '~> 1.2.0'
+    end
+
+    # Controller
+    s.subspec 'Controller' do |cc|
+        cc.source_files = 'CCDevKit/Classes/Controller/**/*'
+    end
+
+    # Request
+    s.subspec 'Request' do |rr|
+        rr.source_files = 'CCDevKit/Classes/Request/**/*'
+        rr.dependency 'MBProgressHUD', '~> 1.2.0'
+        rr.dependency "Cache", '~>5.3.0'
+        rr.dependency 'Moya','~>13.0.1'
+
+    end
 end
