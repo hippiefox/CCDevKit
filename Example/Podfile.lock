@@ -1,7 +1,7 @@
 PODS:
   - Alamofire (4.9.1)
   - Cache (5.3.0)
-  - CCDevKit (0.1.2):
+  - CCDevKit (0.1.5):
     - Cache (~> 5.3.0)
     - KeychainAccess (~> 4.2.1)
     - MBProgressHUD (~> 1.2.0)
@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
   Cache: 48762993ec44e1d93483c4d4a13edd18452326f4
-  CCDevKit: 357611d0ef225ce13d7e228f8521d558b341d418
+  CCDevKit: c19bfe65b3bb1e942ee3976777c6f14c8cefb605
   KeychainAccess: c0c4f7f38f6fc7bbe58f5702e25f7bd2f65abf51
   MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
