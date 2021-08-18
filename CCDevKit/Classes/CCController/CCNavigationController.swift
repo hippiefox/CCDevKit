@@ -9,7 +9,18 @@ import Foundation
 import UIKit
 
 open class CCNavigationController: UINavigationController, UIGestureRecognizerDelegate {
-    public static var naviBackImage: UIImage?
+    public static var naviBackImage: UIImage? = {
+        
+        let bundle = Bundle.init(for: CCNavigationController.self)
+        guard let imgPath = bundle.path(forResource: "nav_back@2x.png", ofType: nil) else{
+            return nil
+        }
+        
+        let img = UIImage.init(contentsOfFile: imgPath)
+        return img
+    }()
+
+    
 
     override open func viewDidLoad() {
         super.viewDidLoad()
